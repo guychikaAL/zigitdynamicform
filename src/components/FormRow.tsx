@@ -11,7 +11,6 @@ export default function FormRow({ field, register, errors }: FieldProps) {
     return (
         <div className="form-row-wrapper">
             <div className="form-row-content">
-
                 <div className="form-row">
                     <label className="form-label">{field.label}</label>
                     {field.type === 'input' && (
@@ -38,9 +37,7 @@ export default function FormRow({ field, register, errors }: FieldProps) {
                             ))}
                         </select>
                     )}
-
                 </div>
-
                 <div className="form-error">
                     {errors[field.label] && (
                         <span className="error-text">{errors[field.label]?.message as string}</span>

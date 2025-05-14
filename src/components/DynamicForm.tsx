@@ -34,11 +34,11 @@ export default function DynamicForm({ schema }: FormProps) {
                         register={register}
                         errors={errors}
                     />
-
                 ))}
-
                 <div className="submit-wrapper">
-                    {isValid && <button type="submit" className="submit-btn">Submit</button>}
+                    <button type="submit" disabled={!isValid} className="submit-btn">
+                        Submit
+                    </button>
                 </div>
             </form>
             {showModal && (
@@ -47,14 +47,13 @@ export default function DynamicForm({ schema }: FormProps) {
                     <div className="submitted-fields">
                         {submittedData &&
                             Object.keys(submittedData).map((key) => (
-                                <p key={key}>
+                                <div key={key}>
                                     <strong>{key}:</strong> {submittedData[key]}
-                                </p>
+                                </div>
                             ))}
                     </div>
                 </Modal>
             )}
         </div>
-
     );
 }
